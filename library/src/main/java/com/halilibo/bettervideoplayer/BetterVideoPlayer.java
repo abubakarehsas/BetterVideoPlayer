@@ -82,7 +82,7 @@ public class BetterVideoPlayer extends RelativeLayout
   private static final String BETTER_VIDEO_PLAYER_BRIGHTNESS = "BETTER_VIDEO_PLAYER_BRIGHTNESS";
   private static final int UPDATE_INTERVAL = 100;
 
-  private SpinKitView mProgressBar;
+  private ProgressBar mProgressBar;
   private TextView mPositionTextView;
   private boolean mLoop = false;
 
@@ -751,14 +751,14 @@ public class BetterVideoPlayer extends RelativeLayout
 
     // Inflate and add progress
     mProgressFrame = li.inflate(R.layout.bvp_include_progress, this, false);
-    mProgressBar = (SpinKitView) mProgressFrame.findViewById(R.id.spin_kit);
+    mProgressBar = (ProgressBar) mProgressFrame.findViewById(R.id.spin_kit);
     mBottomProgressBar = (ProgressBar) mProgressFrame.findViewById(R.id.progressBarBottom);
 
     TypedValue typedValue = new TypedValue();
     Resources.Theme theme = getContext().getTheme();
     theme.resolveAttribute(R.attr.colorAccent, typedValue, true);
     int color = typedValue.data;
-    mProgressBar.setColor(color);
+    //mProgressBar.setColor(color);
     setLoadingStyle(mLoadingStyle);
 
     mPositionTextView = (TextView) mProgressFrame.findViewById(R.id.position_textview);
@@ -982,7 +982,8 @@ public class BetterVideoPlayer extends RelativeLayout
         drawable = new ThreeBounce();
         break;
     }
-    mProgressBar.setIndeterminateDrawable(drawable);
+    //mProgressBar.setIndeterminateDrawable(
+    //    getResources().getDrawable(R.drawable.bvp_material_progress));
   }
 
   private Drawable materialProgress() {
